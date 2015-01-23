@@ -3,14 +3,6 @@
 # row and column are set to zero.
 #
 
-def print_matrix(m):
-    M = len(m)
-    N = len(m[0])
-    for i in xrange(M):
-        for j in xrange(N):
-            print m[i][j],
-        print
-    
 
 def setzero(m):
     M = len(m)
@@ -29,19 +21,3 @@ def setzero(m):
         for j in cols:
             m[i][j] = 0
     return m
-
-
-def main():
-    m = [[1, 2, 3],
-         [4, 5, 6]]
-    print_matrix(m)
-    print
-    setzero(m)
-    print_matrix(m)
-    print
-    m[1][1] = 0
-    setzero(m)
-    print_matrix(m)
-
-if __name__ == "__main__":
-    main()

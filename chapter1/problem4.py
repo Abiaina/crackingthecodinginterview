@@ -27,13 +27,3 @@ def escape_spaces(s):
             l[out] = l[i]
             out -= 1
     return "".join(l)
-
-
-def main():
-    assert escape_spaces("test") == "test"
-    assert escape_spaces("test this") == "test%20this"
-    assert escape_spaces("this is a test") == "this%20is%20a%20test"
-    assert escape_spaces("Mr John Smith") == "Mr%20John%20Smith"
-
-if __name__ == "__main__":
-    main()

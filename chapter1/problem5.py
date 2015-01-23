@@ -19,12 +19,3 @@ def compress(s):
     if len(compressed) < len(s):
         return compressed
     return s
-
-
-def main():
-    assert compress("aabcccccaaa") == "a2b1c5a3"
-    assert compress("unique") == "unique"
-
-
-if __name__ == "__main__":
-    main()

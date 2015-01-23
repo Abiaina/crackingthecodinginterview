@@ -38,27 +38,3 @@ def rotate_clockwise(m):
 
 def rotate_anticlockwise(m):
     return transpose(flip_horiz(m))
-
-
-def print_matrix(m):
-    N = len(m)
-    for i in xrange(N):
-        for j in xrange(N):
-            print m[i][j],
-        print
-
-
-def main():
-    m = [[1, 2, 3],
-         [4, 5, 6],
-         [7, 8, 9]]
-    print_matrix(m)
-    print
-    print_matrix(rotate_clockwise(m))
-    print
-    print_matrix(rotate_anticlockwise(m))  # back to original orientation
-    print
-    print_matrix(rotate_anticlockwise(m))
-
-if __name__ == "__main__":
-    main()

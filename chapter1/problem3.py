@@ -1,7 +1,6 @@
 #
 # Given a string, determine if one is a permutation of the other
 #
-
 from collections import Counter
 
 
@@ -10,10 +9,6 @@ def is_permutation(s1, s2):
 
 
 def main():
-    assert is_permutation("misha", "ahsim")
-    assert is_permutation("foobar", "raboof")
-    assert is_permutation("radar", "radar")
-
     s1 = raw_input("Enter a string: ")
     s2 = raw_input("Enter another string: ")
     print "is_permutation(%s, %s):" % (repr(s1), repr(s2)),

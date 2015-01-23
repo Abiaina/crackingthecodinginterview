@@ -1,6 +1,3 @@
-import unittest
-
-
 class SinglyLinkedListNode(object):
 
     def __init__(self, payload, next_=None):
@@ -35,6 +32,14 @@ class SinglyLinkedList(object):
             yield current.payload
             current = current.next_
 
+    def __len__(self):
+        length = 0
+        curr = self.head
+        while curr:
+            length += 1
+            curr = curr.next_
+        return length
+
     def __repr__(self):
         return "SinglyLinkedList(%s)" % str(list(self))
 
@@ -47,35 +52,9 @@ class SinglyLinkedList(object):
             self.tail.next_ = node
             self.tail = self.tail.next_
 
-
-class SinglyLinkedListTest(unittest.TestCase):
-
-    def test_empty(self):
-        l = []
-        sll = SinglyLinkedList(l)
-        self.assertEquals(l, list(sll))
-
-    def test_sanity(self):
-        l = range(10)
-        sll = SinglyLinkedList(l)
-        self.assertEquals(l, list(sll))
-
-    def test_add(self):
-        a1 = range(10)
-        a2 = range(100, 110)
-        sll = SinglyLinkedList(a1) + SinglyLinkedList(a2)
-        self.assertEquals(list(sll), a1 + a2)
-
-    def test_append(self):
-        a = range(10)
-        b = range(11)
-        sll = SinglyLinkedList(a)
-        self.assertEquals(list(sll), a)
-        sll.append(10)
-        self.assertEquals(list(sll), b)
-
-    def test_append_empty(self):
-        sll = SinglyLinkedList()
-        self.assertEquals(list(sll), [])
-        sll.append(1)
-        self.assertEquals(list(sll), [1])
+    def reverse(self):
+        """Returns a reversed copy of this linked list."""
+        result = SinglyLinkedList()
+        for value in self:
+            result.head = SinglyLinkedListNode(value, result.head)
+        return result

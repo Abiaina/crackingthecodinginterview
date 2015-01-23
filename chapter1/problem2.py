@@ -13,11 +13,6 @@ def reverse(s):
 
 
 def main():
-    assert reverse("misha") == "ahsim"
-    assert reverse("mikhail") == "liahkim"
-    assert reverse("foob") == "boof"
-    assert reverse("radar") == "radar"
-
     s = raw_input("Enter a string: ")
     print "reverse(%s):" % repr(s), reverse(s)
 

@@ -25,17 +25,6 @@ def is_unique2(s):
 
 
 def main():
-    unique = ["fobar", "misha"]
-    not_unique = ["foobar", "mikhail"]
-
-    for s in unique:
-        assert is_unique(s)
-        assert is_unique2(s)
-
-    for s in not_unique:
-        assert not is_unique(s)
-        assert not is_unique(s)
-
     s = raw_input("Enter a string: ")
     print "is_unique(%s):" % repr(s), is_unique(s)
     print "is_unique2(%s):" % repr(s), is_unique2(s)
