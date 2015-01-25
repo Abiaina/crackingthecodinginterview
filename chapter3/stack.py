@@ -1,4 +1,4 @@
-class StackNode(object):
+class Node(object):
 
     def __init__(self, payload, next_=None):
         self.payload = payload
@@ -7,13 +7,13 @@ class StackNode(object):
 
 class Stack(object):
 
-    def __init__(self, iterable):
+    def __init__(self, iterable=[]):
         """Create a new stack.
         Optionally, populate it with the items in an iterable.
         The end of the iterable is the top of the stack."""
         self.top = None
         for payload in iterable:
-            self.top = StackNode(payload, self.top)
+            self.push(payload)
 
     def peek(self):
         if not self.top:
@@ -26,6 +26,9 @@ class Stack(object):
         payload = self.top.payload
         self.top = self.top.next_
         return payload
+
+    def push(self, value):
+        self.top = Node(value, self.top)
 
     def __repr__(self):
         payloads = []

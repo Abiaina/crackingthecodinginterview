@@ -22,3 +22,10 @@ class StackTest(unittest.TestCase):
         print repr(stack)
         self.assertEquals(stack.peek(), "d")
         self.assertEquals(stack.peek(), "d")
+
+    def test_push(self):
+        stack = Stack()
+        stack.push("a")
+        self.assertEquals(stack.peek(), "a")
+        stack.push("b")
+        self.assertEquals(stack.peek(), "b")
