@@ -1,3 +1,8 @@
+#
+# Describe how you could use a single array to implement three stacks.
+#
+
+
 class TripleStack(object):
 
     def __init__(self, size=100):
