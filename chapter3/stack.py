@@ -12,6 +12,7 @@ class Stack(object):
         Optionally, populate it with the items in an iterable.
         The end of the iterable is the top of the stack."""
         self.top = None
+        self.numitems = 0
         for payload in iterable:
             self.push(payload)
 
@@ -25,10 +26,12 @@ class Stack(object):
             raise ValueError("empty stack")
         payload = self.top.payload
         self.top = self.top.next_
+        self.numitems -= 1
         return payload
 
     def push(self, value):
         self.top = Node(value, self.top)
+        self.numitems += 1
 
     def __repr__(self):
         payloads = []
@@ -37,3 +40,6 @@ class Stack(object):
             payloads.append(curr.payload)
             curr = curr.next_
         return "Stack(%s)" % repr(payloads)
+
+    def __len__(self):
+        return self.numitems
