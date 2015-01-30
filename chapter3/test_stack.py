@@ -36,3 +36,11 @@ class StackTest(unittest.TestCase):
         stack.push("b")
         self.assertEquals(stack.peek(), "b")
         self.assertEquals(len(stack), 2)
+
+    def test_is_empty(self):
+        s = Stack()
+        self.assertEquals(s.is_empty(), True)
+        s.push("a")
+        self.assertEquals(s.is_empty(), False)
+        s.pop()
+        self.assertEquals(s.is_empty(), True)

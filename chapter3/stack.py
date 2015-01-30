@@ -43,3 +43,6 @@ class Stack(object):
 
     def __len__(self):
         return self.numitems
+
+    def is_empty(self):
+        return self.numitems == 0
