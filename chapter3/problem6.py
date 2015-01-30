@@ -7,29 +7,34 @@
 from stack import Stack
 
 
+def bubble_sort_iter(src, dst, compare):
+    percolations = 0
+    dst.push(src.pop())
+    while not src.is_empty():
+        elt = src.pop()
+        if compare(elt, dst.peek()):
+            tmp = dst.pop()
+            dst.push(elt)
+            dst.push(tmp)
+            percolations += 1
+        else:
+            dst.push(elt)
+    return percolations
+
+
 def sort_stack(stack):
     if stack.is_empty():
         return
 
     buf = Stack()
-    is_sorted = False
 
     #
-    # Bubble-sort the stack into buf (in reverse order).
-    # Copy buf back into stack.
-    # Repeat until bubble sort step achieves nothing.
+    # Bubble-sort stack into buf
+    # Bubble-sort buf into stack (in reverse order).
+    # Repeat until the second bubble sort step achieves nothing.
     #
-    while not is_sorted:
-        is_sorted = True
-        buf.push(stack.pop())
-        while not stack.is_empty():
-            elt = stack.pop()
-            if elt > buf.peek():
-                tmp = buf.pop()
-                buf.push(elt)
-                buf.push(tmp)
-                is_sorted = False
-            else:
-                buf.push(elt)
-        while not buf.is_empty():
-            stack.push(buf.pop())
+    while True:
+        bubble_sort_iter(stack, buf, lambda a, b: a > b)
+        percolations = bubble_sort_iter(buf, stack, lambda a, b: a < b)
+        if percolations == 0:
+            break
