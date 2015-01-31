@@ -9,9 +9,9 @@ class Queue(object):
         The end of the iterable is the top of the stack."""
         self.front = self.back = None
         for payload in iterable:
-            self.push(payload)
+            self.enqueue(payload)
 
-    def push(self, value):
+    def enqueue(self, value):
         new_node = Node(value)
         if self.back is None:
             self.front = self.back = new_node
@@ -24,7 +24,7 @@ class Queue(object):
             raise ValueError("empty queue")
         return self.front.payload
 
-    def pop(self):
+    def dequeue(self):
         if not self.front:
             raise ValueError("empty queue")
         result = self.front.payload

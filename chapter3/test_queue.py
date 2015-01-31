@@ -7,15 +7,15 @@ class QueueTest(unittest.TestCase):
     def test_empty(self):
         queue = Queue([])
         self.assertRaises(ValueError, queue.peek)
-        self.assertRaises(ValueError, queue.pop)
+        self.assertRaises(ValueError, queue.dequeue)
 
-    def test_pop(self):
+    def test_dequeue(self):
         queue = Queue("abcd")
         print repr(queue)
-        self.assertEquals(queue.pop(), "a")
-        self.assertEquals(queue.pop(), "b")
-        self.assertEquals(queue.pop(), "c")
-        self.assertEquals(queue.pop(), "d")
+        self.assertEquals(queue.dequeue(), "a")
+        self.assertEquals(queue.dequeue(), "b")
+        self.assertEquals(queue.dequeue(), "c")
+        self.assertEquals(queue.dequeue(), "d")
 
     def test_peek(self):
         queue = Queue("abcd")
@@ -23,9 +23,9 @@ class QueueTest(unittest.TestCase):
         self.assertEquals(queue.peek(), "a")
         self.assertEquals(queue.peek(), "a")
 
-    def test_push(self):
+    def test_enqueue(self):
         queue = Queue("")
-        queue.push("a")
+        queue.enqueue("a")
         self.assertEquals(queue.peek(), "a")
-        queue.push("b")
+        queue.enqueue("b")
         self.assertEquals(queue.peek(), "a")
