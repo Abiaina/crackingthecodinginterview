@@ -6,20 +6,19 @@
 
 
 def is_balanced(tree):
-    heights = {}
-    return is_balanced_node(tree.root, heights)
+    return check_height(tree.root) != -1
 
 
-def is_balanced_node(node, heights):
+def check_height(node):
     if node:
-        bal = is_balanced_node(node.left, heights)
-        if not bal:
-            return False
-        bal = is_balanced_node(node.right, heights)
-        if not bal:
-            return False
-        heights[node] = 1 + max(heights[node.left], heights[node.right])
-        return abs(heights[node.left] - heights[node.right]) <= 1
+        left = check_height(node.left)
+        if left == -1:
+            return -1
+        right = check_height(node.right)
+        if right == -1:
+            return -1
+        if abs(left - right) > 1:
+            return -1
+        return 1 + max(left, right)
     else:
-        heights[node] = 0
-        return True
+        return 0
