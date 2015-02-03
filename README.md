@@ -34,3 +34,18 @@ Found a Bug?
 ------------
 
 If you've found a bug or a test case that I'm not covering, please submit a pull request.
+
+Debugging
+---------
+
+If one of the test cases is failing or tripping over an error, you can drop into [pdb](https://docs.python.org/2/library/pdb.html) by re-running nose:
+
+    nosetests --pdb
+
+If you'd like to step through a test case from the beginning, add the following line to the test case:
+
+    import pdb; pdb.set_trace()
+
+and re-run nose:
+
+    nosetests --nocapture
