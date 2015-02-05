@@ -19,14 +19,17 @@ class Visitor(object):
             node.right.parent = node
 
 
+def add_parent_pointers(tree):
+    visitor = Visitor()
+    visitor.in_order(tree.root)
+    tree.root.parent = None
+
+
 class TestNextNode(unittest.TestCase):
 
     def setUp(self):
         self.tree = create_bst(range(7))
-
-        visitor = Visitor()
-        visitor.in_order(self.tree.root)
-        self.tree.root.parent = None
+        add_parent_pointers(self.tree)
 
     def test_complete(self):
         node = self.tree.root.left.left
