@@ -6,6 +6,8 @@ The book comes with solutions and Java code, but I thought it would be a good ex
 The book contains more than the actual interview problems: resume preparation and interview tips, and inside info about how some of the major companies do their hiring.
 I thoroughly recommend it.
 
+[![Coverage Status](https://coveralls.io/repos/mpenkov/crackingthecodinginterview/badge.svg)](https://coveralls.io/r/mpenkov/crackingthecodinginterview)
+
 Running the Solutions
 ---------------------
 
