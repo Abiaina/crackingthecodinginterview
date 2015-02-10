@@ -20,9 +20,9 @@ Some files contain main functions, so you can run them, for example:
     python problem1.py
 
 Files named `testX.py` contain [unit tests](https://docs.python.org/2/library/unittest.html) for problem X.
-To run the unit tests, you need first need to install [nosetests](https://nose.readthedocs.org/en/latest/):
+To run the unit tests, you need first need to install [nosetests](https://nose.readthedocs.org/en/latest/) and [mock](https://pypi.python.org/pypi/mock):
 
-    pip install nose
+    pip install nose mock
 
 To run the tests for a particular chapter:
 
@@ -31,7 +31,7 @@ To run the tests for a particular chapter:
 
 You can also run all the tests by:
 
-    nosetests .
+    nosetests
 
 Found a Bug?
 ------------
