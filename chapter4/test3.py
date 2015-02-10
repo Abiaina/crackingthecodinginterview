@@ -1,7 +1,8 @@
 import unittest
-from problem3 import create_bst
-from problem5 import is_bst
-from tree import complete_tree
+
+import problem3
+import problem5
+import tree
 
 
 def height(node):
@@ -13,14 +14,14 @@ def height(node):
 class TestHeight(unittest.TestCase):
 
     def test(self):
-        tree = complete_tree(3)
-        self.assertEquals(height(tree.root), 3)
+        t = tree.complete_tree(3)
+        self.assertEquals(height(t.root), 3)
 
 
 class TestCreateBst(unittest.TestCase):
 
     def test(self):
         arr = range(63)
-        tree = create_bst(arr)
-        self.assertEquals(height(tree.root), 6)
-        self.assertEquals(is_bst(tree), True)
+        t = problem3.create_bst(arr)
+        self.assertEquals(height(t.root), 6)
+        self.assertEquals(problem5.is_bst(t), True)

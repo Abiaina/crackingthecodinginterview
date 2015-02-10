@@ -1,29 +1,30 @@
 import unittest
-from test6 import add_parent_pointers
-from problem3 import create_bst
-from problem7 import lowest_common_ancestor as lca
+import test6
+import problem3
+import problem7
 
 
 class TestLowestCommonAncestor(unittest.TestCase):
 
     def setUp(self):
-        self.tree = create_bst(range(7))
-        add_parent_pointers(self.tree)
+        self.t = problem3.create_bst(range(7))
+        test6.add_parent_pointers(self.t)
 
     def test_none(self):
-        self.assertEquals(lca(self.tree.root, None), None)
-        self.assertEquals(lca(None, self.tree.root), None)
-        self.assertEquals(lca(None, None), None)
+        self.assertEquals(problem7.lca(self.t.root, None), None)
+        self.assertEquals(problem7.lca(None, self.t.root), None)
+        self.assertEquals(problem7.lca(None, None), None)
 
     def test_same_node(self):
-        self.assertEquals(lca(self.tree.root, self.tree.root), self.tree.root)
-        self.assertEquals(lca(self.tree.root.left, self.tree.root.left),
-                          self.tree.root.left)
+        self.assertEquals(problem7.lca(self.t.root, self.t.root), self.t.root)
+        self.assertEquals(problem7.lca(self.t.root.left, self.t.root.left),
+                          self.t.root.left)
 
     def test_simple(self):
-        self.assertEquals(lca(self.tree.root.left, self.tree.root.right),
-                          self.tree.root)
+        self.assertEquals(problem7.lca(self.t.root.left, self.t.root.right),
+                          self.t.root)
 
     def test_hard(self):
-        self.assertEquals(lca(self.tree.root.left.right, self.tree.root.right),
-                          self.tree.root)
+        self.assertEquals(problem7.lca(self.t.root.left.right,
+                                       self.t.root.right),
+                          self.t.root)

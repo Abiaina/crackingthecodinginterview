@@ -3,20 +3,20 @@
 # an algorithm to create a binary search tree with minimum height.
 #
 
-from tree import Tree, TreeNode
+import tree
 
 
 def create_subtree(arr):
     if len(arr) == 0:
         return None
     idx = len(arr) / 2
-    node = TreeNode(arr[idx])
+    node = tree.Node(arr[idx])
     node.left = create_subtree(arr[:idx])
     node.right = create_subtree(arr[idx+1:])
     return node
 
 
 def create_bst(arr):
-    tree = Tree()
-    tree.root = create_subtree(arr)
-    return tree
+    t = tree.Tree()
+    t.root = create_subtree(arr)
+    return t

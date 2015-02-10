@@ -13,7 +13,7 @@ def find_depth(node):
     return counter
 
 
-def lowest_common_ancestor(shallow, deep):
+def lca(shallow, deep):
     if shallow is None or deep is None:
         return None
     shallow_depth = find_depth(shallow)

@@ -4,8 +4,8 @@ import sys
 import copy
 import nose.tools
 
-from tree import Tree, TreeNode
-from problem8 import is_subtree
+import tree
+import problem8
 
 
 def random_int():
@@ -17,14 +17,14 @@ def random_str():
 
 
 def create_random_tree(max_depth, value_fn):
-    root = TreeNode(0)
+    root = tree.Node(0)
     stack = [(0, root)]
     while stack:
         depth, node = stack.pop()
         if depth == max_depth:
             continue
-        node.left = TreeNode(value_fn())
-        node.right = TreeNode(value_fn())
+        node.left = tree.Node(value_fn())
+        node.right = tree.Node(value_fn())
 
         if 0.0 <= random.random() < 0.05:
             continue
@@ -36,14 +36,14 @@ def create_random_tree(max_depth, value_fn):
             stack.append((depth + 1, node.right))
             stack.append((depth + 1, node.left))
 
-    tree = Tree()
-    tree.root = root
-    return tree
+    t = tree.Tree()
+    t.root = root
+    return t
 
 
-def random_node(tree, max_depth):
+def random_node(t, max_depth):
     depth = int(random.random() * max_depth)
-    node = tree.root
+    node = t.root
     while depth:
         next_node = node.left if random.random() < 0.5 else node.right
         if next_node:
@@ -64,11 +64,11 @@ class TestIsSubtree(unittest.TestCase):
         tiny = create_random_tree(TestIsSubtree.TINY_HEIGHT / 2, random_str)
         tiny_copy = copy.deepcopy(tiny)
 
-        self.assertFalse(is_subtree(huge, tiny))
+        self.assertFalse(problem8.is_subtree(huge, tiny))
 
         random_node(huge, TestIsSubtree.HUGE_HEIGHT / 2).left = tiny_copy.root
 
-        self.assertTrue(is_subtree(huge, tiny))
+        self.assertTrue(problem8.is_subtree(huge, tiny))
 
     #
     # I've disabled this test because it takes too long (around half a minute,
@@ -80,8 +80,8 @@ class TestIsSubtree(unittest.TestCase):
         tiny = create_random_tree(TestIsSubtree.TINY_HEIGHT, random_str)
         tiny_copy = copy.deepcopy(tiny)
 
-        self.assertFalse(is_subtree(huge, tiny))
+        self.assertFalse(problem8.is_subtree(huge, tiny))
 
         random_node(huge, TestIsSubtree.HUGE_HEIGHT).left = tiny_copy.root
 
-        self.assertTrue(is_subtree(huge, tiny))
+        self.assertTrue(problem8.is_subtree(huge, tiny))

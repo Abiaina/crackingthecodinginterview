@@ -1,7 +1,7 @@
 import unittest
 
-from problem6 import next_node
-from problem3 import create_bst
+import problem3
+import problem6
 
 
 class Visitor(object):
@@ -28,7 +28,7 @@ def add_parent_pointers(tree):
 class TestNextNode(unittest.TestCase):
 
     def setUp(self):
-        self.tree = create_bst(range(7))
+        self.tree = problem3.create_bst(range(7))
         add_parent_pointers(self.tree)
 
     def test_complete(self):
@@ -37,20 +37,20 @@ class TestNextNode(unittest.TestCase):
         self.assertEquals(node.right, None)
         self.assertEquals(node.value, 0)
 
-        node = next_node(node)
+        node = problem6.next_node(node)
         self.assertEquals(node.value, 1)
 
-        node = next_node(node)
+        node = problem6.next_node(node)
         self.assertEquals(node.value, 2)
 
-        node = next_node(node)
+        node = problem6.next_node(node)
         self.assertEquals(node.value, 3)
 
-        node = next_node(node)
+        node = problem6.next_node(node)
         self.assertEquals(node.value, 4)
 
-        node = next_node(node)
+        node = problem6.next_node(node)
         self.assertEquals(node.value, 5)
 
-        node = next_node(node)
+        node = problem6.next_node(node)
         self.assertEquals(node.value, 6)

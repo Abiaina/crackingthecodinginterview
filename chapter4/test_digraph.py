@@ -1,11 +1,11 @@
 import unittest
-from digraph import DirectedGraph
+import digraph
 
 
 class TestDigraph(unittest.TestCase):
 
     def setUp(self):
-        self.g = DirectedGraph(range(6))
+        self.g = digraph.DirectedGraph(range(6))
 
         self.g.add_edge(0, 1)
         self.g.add_edge(0, 2)
