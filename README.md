@@ -1,7 +1,7 @@
 crackingthecodinginterview
 ==========================
 
-[![Build Status](https://travis-ci.org/mpenkov/crackingthecodinginterview)](https://travis-ci.org/mpenkov/crackingthecodinginterview.svg?branch=master)
+[![Build Status](https://travis-ci.org/mpenkov/crackingthecodinginterview.svg?branch=master)](https://travis-ci.org/mpenkov/crackingthecodinginterview)
 [![Coverage Status](https://coveralls.io/repos/mpenkov/crackingthecodinginterview/badge.svg)](https://coveralls.io/r/mpenkov/crackingthecodinginterview)
 
 This repository contains solutions to the interview problems from ["Cracking the Coding Interview"](http://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/098478280X) by Gayle Laakmann McDowell.
