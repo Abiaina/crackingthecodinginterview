@@ -1,0 +1,13 @@
+Q: 
+
+Explain what the following code does: ((n & (n - 1)) == 0)
+
+A: 
+
+(n - 1) clears the least significant 1 bit and sets everything less significant than it to zero.
+((A & B) == 0) is True when A and B have no bits in common.
+(n & (n - 1)) will be non-zero if there are any 1 bits that are more significant than the least significant 1 bit.
+In other words, it will be non-zero if there is more than one 1 bit.
+Therefore, ((n & (n - 1)) == 0) will be True if n is a power of 2.
+
+TODO: what about if n signed and non-positive?
