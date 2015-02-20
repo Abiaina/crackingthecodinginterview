@@ -13,6 +13,6 @@ def hamming(A, B):
     C = A ^ B
     count = 0
     while C:
-        count += C % 2
-        C >>= 1
+        count += 1
+        C = C & (C - 1)  # Clear the least significant bit
     return count
