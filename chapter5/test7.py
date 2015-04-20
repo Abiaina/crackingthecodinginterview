@@ -26,15 +26,15 @@ class TestArray(unittest.TestCase):
         self.assertEquals(A.access(3, 7), 0)
         self.assertEquals(A.access(3, 8), 0)
 
-        self.assertEquals(A.access(9, 0), 0)
-        self.assertEquals(A.access(9, 1), 1)
-        self.assertEquals(A.access(9, 2), 0)
-        self.assertEquals(A.access(9, 3), 1)
-        self.assertEquals(A.access(9, 4), 0)
-        self.assertEquals(A.access(9, 5), 0)
-        self.assertEquals(A.access(9, 6), 0)
-        self.assertEquals(A.access(9, 7), 0)
-        self.assertEquals(A.access(9, 8), 0)
+        self.assertEquals(A.access(9 - 1, 0), 1)
+        self.assertEquals(A.access(9 - 1, 1), 0)
+        self.assertEquals(A.access(9 - 1, 2), 0)
+        self.assertEquals(A.access(9 - 1, 3), 1)
+        self.assertEquals(A.access(9 - 1, 4), 0)
+        self.assertEquals(A.access(9 - 1, 5), 0)
+        self.assertEquals(A.access(9 - 1, 6), 0)
+        self.assertEquals(A.access(9 - 1, 7), 0)
+        self.assertEquals(A.access(9 - 1, 8), 0)
 
 
 class TestSolve(unittest.TestCase):
