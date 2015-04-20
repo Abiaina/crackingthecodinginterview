@@ -49,10 +49,7 @@ def solve(A):
             else:
                 zeros.append(i)
 
-        if A.n % 2 == 1:
-            missing_bit = 1 if len(ones) < len(zeros) else 0
-        else:
-            missing_bit = 1 if len(ones) < len(zeros) - 1 else 0
+        missing_bit = 0 if len(zeros) <= len(ones) else 1
         missing_number += missing_bit << j
         indices = ones if missing_bit == 1 else zeros
 
