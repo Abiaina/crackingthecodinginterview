@@ -1,3 +1,7 @@
+Working through cracking the coding interview. Coding up everything by hand. But will use this as source to compare my python code when it doesn't readily translate into the java solutions in the book.
+
+TODO: add worked solution to code for future reference and run compile and test checks.
+
 crackingthecodinginterview
 ==========================
 
